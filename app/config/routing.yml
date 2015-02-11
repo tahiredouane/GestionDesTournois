@@ -1,0 +1,4 @@
+gt_gestion_tournois:
+    resource: "@GTGestionTournoisBundle/Resources/config/routing.yml"
+    prefix:   /
+

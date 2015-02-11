@@ -1,0 +1,7 @@
+parameters:
+#    gt_gestion_tournois.example.class: GT\GestionTournoisBundle\Example
+
+services:
+#    gt_gestion_tournois.example:
+#        class: %gt_gestion_tournois.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

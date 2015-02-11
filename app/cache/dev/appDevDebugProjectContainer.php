@@ -36,19 +36,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'acme.demo.listener' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return Acme\DemoBundle\EventListener\ControllerListener A Acme\DemoBundle\EventListener\ControllerListener instance.
-     */
-    protected function getAcme_Demo_ListenerService()
-    {
-        return $this->services['acme.demo.listener'] = new \Acme\DemoBundle\EventListener\ControllerListener($this->get('twig.extension.acme.demo'));
-    }
-
-    /**
      * Gets the 'annotation_reader' service.
      *
      * This service is shared.
@@ -287,7 +274,7 @@ class appDevDebugProjectContainer extends Container
         $b = new \Doctrine\DBAL\Configuration();
         $b->setSQLLogger($a);
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'symfony', 'host' => '127.0.0.1', 'port' => NULL, 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driver' => 'pdo_mysql', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'gestiondestournois', 'host' => '127.0.0.1', 'port' => NULL, 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driver' => 'pdo_mysql', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
     }
 
     /**
@@ -296,11 +283,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager54dbac3cc245e_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager54dbac3cc245e_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager54dbb87363f1c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager54dbb87363f1c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/Users/tahi/Documents/NetBeansProjects/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dbac3cc245e.php';
+        require_once 'C:/Users/tahi/Documents/NetBeansProjects/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dbb87363f1c.php';
 
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2orm_default_981e16a34b436fa53040b7a260eb4cda');
@@ -327,7 +314,7 @@ class appDevDebugProjectContainer extends Container
         $e = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
         $this->get('doctrine.orm.default_manager_configurator')->configure($e);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager54dbac3cc245e_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($e, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager54dbb87363f1c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($e, $this);
     }
 
     /**
@@ -390,7 +377,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addListenerService('kernel.controller', array(0 => 'sensio_framework_extra.view.listener', 1 => 'onKernelController'), 0);
         $instance->addListenerService('kernel.view', array(0 => 'sensio_framework_extra.view.listener', 1 => 'onKernelView'), 0);
         $instance->addListenerService('kernel.response', array(0 => 'sensio_framework_extra.cache.listener', 1 => 'onKernelResponse'), 0);
-        $instance->addListenerService('kernel.controller', array(0 => 'acme.demo.listener', 1 => 'onKernelController'), 0);
         $instance->addSubscriberService('response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener');
         $instance->addSubscriberService('streamed_response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\StreamedResponseListener');
         $instance->addSubscriberService('locale_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\LocaleListener');
@@ -1100,7 +1086,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getLocaleListenerService()
     {
-        return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener('en', $this->get('router'));
+        return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener('fr', $this->get('router'));
     }
 
     /**
@@ -2664,7 +2650,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default')));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension(new \JMS\SecurityExtraBundle\Twig\SecurityExtension($a));
-        $instance->addExtension($this->get('twig.extension.acme.demo'));
         $instance->addGlobal('app', $this->get('templating.globals'));
 
         return $instance;
@@ -2714,7 +2699,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\Users\\tahi\\Documents\\NetBeansProjects\\GestionDesTournois\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
         $instance->addPath('C:\\Users\\tahi\\Documents\\NetBeansProjects\\GestionDesTournois\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('C:\\Users\\tahi\\Documents\\NetBeansProjects\\GestionDesTournois\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('C:\\Users\\tahi\\Documents\\NetBeansProjects\\GestionDesTournois\\src\\Acme\\DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('C:\\Users\\tahi\\Documents\\NetBeansProjects\\GestionDesTournois\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\Users\\tahi\\Documents\\NetBeansProjects\\GestionDesTournois\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/Users/tahi/Documents/NetBeansProjects/GestionDesTournois/app/Resources/views');
@@ -2836,7 +2820,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager54dbac3cc245e_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager54dbb87363f1c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3109,23 +3093,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'twig.extension.acme.demo' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return Acme\DemoBundle\Twig\Extension\DemoExtension A Acme\DemoBundle\Twig\Extension\DemoExtension instance.
-     */
-    protected function getTwig_Extension_Acme_DemoService()
-    {
-        return $this->services['twig.extension.acme.demo'] = new \Acme\DemoBundle\Twig\Extension\DemoExtension($this->get('twig.loader'));
-    }
-
-    /**
      * Gets the 'validator.mapping.class_metadata_factory' service.
      *
      * This service is shared.
@@ -3211,7 +3178,6 @@ class appDevDebugProjectContainer extends Container
                 'JMSAopBundle' => 'JMS\\AopBundle\\JMSAopBundle',
                 'JMSDiExtraBundle' => 'JMS\\DiExtraBundle\\JMSDiExtraBundle',
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
-                'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3221,14 +3187,14 @@ class appDevDebugProjectContainer extends Container
             'database_driver' => 'pdo_mysql',
             'database_host' => '127.0.0.1',
             'database_port' => NULL,
-            'database_name' => 'symfony',
+            'database_name' => 'gestiondestournois',
             'database_user' => 'root',
             'database_password' => NULL,
             'mailer_transport' => 'smtp',
             'mailer_host' => '127.0.0.1',
             'mailer_user' => NULL,
             'mailer_password' => NULL,
-            'locale' => 'en',
+            'locale' => 'fr',
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
@@ -3283,7 +3249,7 @@ class appDevDebugProjectContainer extends Container
 
             ),
             'kernel.trust_proxy_headers' => false,
-            'kernel.default_locale' => 'en',
+            'kernel.default_locale' => 'fr',
             'session.class' => 'Symfony\\Component\\HttpFoundation\\Session\\Session',
             'session.flashbag.class' => 'Symfony\\Component\\HttpFoundation\\Session\\Flash\\FlashBag',
             'session.attribute_bag.class' => 'Symfony\\Component\\HttpFoundation\\Session\\Attribute\\AttributeBag',
@@ -3697,8 +3663,8 @@ class appDevDebugProjectContainer extends Container
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
 
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/Users/tahi/Documents/NetBeansProjects/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dbac3cc245e.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager54dbac3cc245e_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/Users/tahi/Documents/NetBeansProjects/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dbb87363f1c.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager54dbb87363f1c_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),
