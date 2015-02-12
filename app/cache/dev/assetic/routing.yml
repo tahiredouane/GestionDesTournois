@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: 'C:/Users/tahi/Documents/NetBeansProjects/GestionDesTournois/app/config/routing_dev.yml'
+    resource: 'D:/wamp/www/GestionDesTournois/app/config/routing_dev.yml'
