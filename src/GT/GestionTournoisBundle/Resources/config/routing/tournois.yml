@@ -1,0 +1,30 @@
+tournois:
+    pattern:  tournois
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:index" }
+
+tournois_show:
+    pattern:  tournois/{id}/show
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:show" }
+
+tournois_new:
+    pattern:  tournois/new
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:new" }
+
+tournois_create:
+    pattern:  tournois/create
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:create" }
+    requirements: { _method: post }
+
+tournois_edit:
+    pattern:  tournois/{id}/edit
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:edit" }
+
+tournois_update:
+    pattern:  tournois/{id}/update
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:update" }
+    requirements: { _method: post|put }
+
+tournois_delete:
+    pattern:  tournois/{id}/delete
+    defaults: { _controller: "GTGestionTournoisBundle:Tournois:delete" }
+    requirements: { _method: post|delete }

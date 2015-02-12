@@ -1,3 +1,8 @@
 gt_gestion_tournois_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: GTGestionTournoisBundle:Default:index }
+tournois: 
+    resource: "@GTGestionTournoisBundle/Resources/config/routing/tournois.yml" 
+  
+    
+    

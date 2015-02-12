@@ -1,0 +1,106 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Tournois</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Intitule</th>
+                <td>{{ entity.intitule }}</td>
+            </tr>
+            <tr>
+                <th>Dtdebut</th>
+                <td>{{ entity.dtDebut|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Dtfin</th>
+                <td>{{ entity.dtFin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ entity.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Systeme</th>
+                <td>{{ entity.systeme }}</td>
+            </tr>
+            <tr>
+                <th>Nbrequipe</th>
+                <td>{{ entity.nbrEquipe }}</td>
+            </tr>
+            <tr>
+                <th>Responsable</th>
+                <td>{{ entity.responsable }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ entity.etat }}</td>
+            </tr>
+            <tr>
+                <th>Winner</th>
+                <td>{{ entity.winner }}</td>
+            </tr>
+            <tr>
+                <th>Meilleurjoueur</th>
+                <td>{{ entity.meilleurJoueur }}</td>
+            </tr>
+            <tr>
+                <th>Meilleurgardienne</th>
+                <td>{{ entity.meilleurGardienne }}</td>
+            </tr>
+            <tr>
+                <th>Buteur</th>
+                <td>{{ entity.buteur }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ entity.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Str1</th>
+                <td>{{ entity.str1 }}</td>
+            </tr>
+            <tr>
+                <th>Str2</th>
+                <td>{{ entity.str2 }}</td>
+            </tr>
+            <tr>
+                <th>Int1</th>
+                <td>{{ entity.int1 }}</td>
+            </tr>
+            <tr>
+                <th>Int2</th>
+                <td>{{ entity.int2 }}</td>
+            </tr>
+            <tr>
+                <th>Dtcreation</th>
+                <td>{{ entity.dtCreation|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tournois') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('tournois_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('tournois_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}
