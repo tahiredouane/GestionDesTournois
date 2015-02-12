@@ -1,0 +1,64 @@
+GT\GestionTournoisBundle\Entity\Avertissement:
+    type: entity
+    table: avertissement
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: ID
+            generator:
+                strategy: IDENTITY
+        tournoi:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: TOURNOI
+        matchs:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: MATCHS
+        equipe:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: EQUIPE
+        joueur:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: JOUEUR
+        typeCarte:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: TYPE_CARTE
+        str1:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: STR_1
+        str2:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: STR_2
+        int1:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_1
+        int2:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_2
+        dtCreation:
+            type: datetime
+            nullable: false
+            column: DT_CREATION
+    lifecycleCallbacks: {  }

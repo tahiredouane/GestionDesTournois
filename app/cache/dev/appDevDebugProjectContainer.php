@@ -283,11 +283,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcb7a2e8ee2.php';
+        require_once 'D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcc200c962b.php';
 
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2orm_default_f4de43b0ea929df01464509b0898cfe6');
@@ -298,23 +298,29 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_f4de43b0ea929df01464509b0898cfe6');
 
-        $d = new \Doctrine\ORM\Configuration();
-        $d->setEntityNamespaces(array());
-        $d->setMetadataCacheImpl($a);
-        $d->setQueryCacheImpl($b);
-        $d->setResultCacheImpl($c);
-        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
-        $d->setProxyDir('D:/wamp/www/GestionDesTournois/app/cache/dev/doctrine/orm/Proxies');
-        $d->setProxyNamespace('Proxies');
-        $d->setAutoGenerateProxyClasses(true);
-        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $d->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $d->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array('D:\\wamp\\www\\GestionDesTournois\\src\\GT\\GestionTournoisBundle\\Resources\\config\\doctrine' => 'GT\\GestionTournoisBundle\\Entity'));
+        $d->setGlobalBasename('mapping');
 
-        $e = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
-        $this->get('doctrine.orm.default_manager_configurator')->configure($e);
+        $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $e->addDriver($d, 'GT\\GestionTournoisBundle\\Entity');
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($e, $this);
+        $f = new \Doctrine\ORM\Configuration();
+        $f->setEntityNamespaces(array('GTGestionTournoisBundle' => 'GT\\GestionTournoisBundle\\Entity'));
+        $f->setMetadataCacheImpl($a);
+        $f->setQueryCacheImpl($b);
+        $f->setResultCacheImpl($c);
+        $f->setMetadataDriverImpl($e);
+        $f->setProxyDir('D:/wamp/www/GestionDesTournois/app/cache/dev/doctrine/orm/Proxies');
+        $f->setProxyNamespace('Proxies');
+        $f->setAutoGenerateProxyClasses(true);
+        $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $f->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $f->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+
+        $g = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $f);
+        $this->get('doctrine.orm.default_manager_configurator')->configure($g);
+
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($g, $this);
     }
 
     /**
@@ -2015,7 +2021,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['swiftmailer.transport.real'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => new \Swift_Transport_Esmtp_AuthHandler(array(0 => new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator(), 1 => new \Swift_Transport_Esmtp_Auth_LoginAuthenticator(), 2 => new \Swift_Transport_Esmtp_Auth_PlainAuthenticator()))), $this->get('swiftmailer.transport.eventdispatcher'));
 
-        $instance->setHost('127.0.0.1');
+        $instance->setHost('localhost');
         $instance->setPort(25);
         $instance->setEncryption(NULL);
         $instance->setUsername(NULL);
@@ -2821,7 +2827,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3193,7 +3199,7 @@ class appDevDebugProjectContainer extends Container
             'database_user' => 'root',
             'database_password' => NULL,
             'mailer_transport' => 'smtp',
-            'mailer_host' => '127.0.0.1',
+            'mailer_host' => 'localhost',
             'mailer_user' => NULL,
             'mailer_password' => NULL,
             'locale' => 'fr',
@@ -3513,7 +3519,7 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.transport.smtp.class' => 'Swift_Transport_EsmtpTransport',
             'swiftmailer.transport.smtp.encryption' => NULL,
             'swiftmailer.transport.smtp.port' => 25,
-            'swiftmailer.transport.smtp.host' => '127.0.0.1',
+            'swiftmailer.transport.smtp.host' => 'localhost',
             'swiftmailer.transport.smtp.username' => NULL,
             'swiftmailer.transport.smtp.password' => NULL,
             'swiftmailer.transport.smtp.auth_mode' => NULL,
@@ -3665,8 +3671,8 @@ class appDevDebugProjectContainer extends Container
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
 
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcb7a2e8ee2.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcc200c962b.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),

@@ -1,0 +1,104 @@
+Tournois:
+    type: entity
+    table: tournois
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: ID
+            generator:
+                strategy: IDENTITY
+        intitule:
+            type: string
+            length: 250
+            fixed: false
+            nullable: false
+            column: INTITULE
+        dtDebut:
+            type: date
+            nullable: false
+            column: DT_DEBUT
+        dtFin:
+            type: date
+            nullable: false
+            column: DT_FIN
+        categorie:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: CATEGORIE
+        systeme:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: SYSTEME
+        nbrEquipe:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: NBR_EQUIPE
+        responsable:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+            column: RESPONSABLE
+        etat:
+            type: boolean
+            nullable: true
+            column: ETAT
+        winner:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: WINNER
+        meilleurJoueur:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: MEILLEUR_JOUEUR
+        meilleurGardienne:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: MEILLEUR_GARDIENNE
+        buteur:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: BUTEUR
+        commentaire:
+            type: string
+            length: 300
+            fixed: false
+            nullable: true
+            column: COMMENTAIRE
+        str1:
+            type: string
+            length: 200
+            fixed: false
+            nullable: true
+            column: STR_1
+        str2:
+            type: string
+            length: 200
+            fixed: false
+            nullable: true
+            column: STR_2
+        int1:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_1
+        int2:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_2
+        dtCreation:
+            type: datetime
+            nullable: false
+            column: DT_CREATION
+    lifecycleCallbacks: {  }

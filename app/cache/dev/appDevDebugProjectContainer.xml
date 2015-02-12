@@ -33,7 +33,7 @@
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
-    <parameter key="mailer_host">127.0.0.1</parameter>
+    <parameter key="mailer_host">localhost</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
     <parameter key="locale">fr</parameter>
@@ -345,7 +345,7 @@
     <parameter key="swiftmailer.transport.smtp.class">Swift_Transport_EsmtpTransport</parameter>
     <parameter key="swiftmailer.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.transport.smtp.host">127.0.0.1</parameter>
+    <parameter key="swiftmailer.transport.smtp.host">localhost</parameter>
     <parameter key="swiftmailer.transport.smtp.username">null</parameter>
     <parameter key="swiftmailer.transport.smtp.password">null</parameter>
     <parameter key="swiftmailer.transport.smtp.auth_mode">null</parameter>
@@ -479,8 +479,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcb7a2e8ee2.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcc200c962b.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -2246,15 +2246,17 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager54dcb7a2e8ee2_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcb7a2e8ee2.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager54dcc200c962b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>D:/wamp/www/GestionDesTournois/app/cache/dev/jms_diextra/doctrine/EntityManager_54dcc200c962b.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
           <argument type="service">
             <service class="Doctrine\ORM\Configuration" public="false">
               <call method="setEntityNamespaces">
-                <argument type="collection"/>
+                <argument type="collection">
+                  <argument key="GTGestionTournoisBundle">GT\GestionTournoisBundle\Entity</argument>
+                </argument>
               </call>
               <call method="setMetadataCacheImpl">
                 <argument type="service">
@@ -2285,7 +2287,21 @@
               </call>
               <call method="setMetadataDriverImpl">
                 <argument type="service">
-                  <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+                  <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                    <call method="addDriver">
+                      <argument type="service">
+                        <service class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
+                          <argument type="collection">
+                            <argument key="D:\wamp\www\GestionDesTournois\src\GT\GestionTournoisBundle\Resources\config\doctrine">GT\GestionTournoisBundle\Entity</argument>
+                          </argument>
+                          <call method="setGlobalBasename">
+                            <argument>mapping</argument>
+                          </call>
+                        </service>
+                      </argument>
+                      <argument>GT\GestionTournoisBundle\Entity</argument>
+                    </call>
+                  </service>
                 </argument>
               </call>
               <call method="setProxyDir">
@@ -2817,7 +2833,7 @@
       </argument>
       <argument type="service" id="swiftmailer.transport.eventdispatcher"/>
       <call method="setHost">
-        <argument>127.0.0.1</argument>
+        <argument>localhost</argument>
       </call>
       <call method="setPort">
         <argument>25</argument>
