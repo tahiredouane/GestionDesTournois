@@ -1,0 +1,30 @@
+tablereference:
+    pattern:  tablereference
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:index" }
+
+tablereference_show:
+    pattern:  tablereference/{id}/show
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:show" }
+
+tablereference_new:
+    pattern:  tablereference/new
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:new" }
+
+tablereference_create:
+    pattern:  tablereference/create
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:create" }
+    requirements: { _method: post }
+
+tablereference_edit:
+    pattern:  tablereference/{id}/edit
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:edit" }
+
+tablereference_update:
+    pattern:  tablereference/{id}/update
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:update" }
+    requirements: { _method: post|put }
+
+tablereference_delete:
+    pattern:  tablereference/{id}/delete
+    defaults: { _controller: "GTGestionTournoisBundle:TableReference:delete" }
+    requirements: { _method: post|delete }

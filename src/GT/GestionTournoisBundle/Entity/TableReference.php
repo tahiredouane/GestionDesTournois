@@ -304,4 +304,8 @@ class TableReference
     {
         return $this->dtCreation;
     }
+    
+     public function __toString() {
+        return $this->intitule;
+    }
 }

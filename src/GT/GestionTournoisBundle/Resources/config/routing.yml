@@ -3,6 +3,7 @@ gt_gestion_tournois_homepage:
     defaults: { _controller: GTGestionTournoisBundle:Default:index }
 tournois: 
     resource: "@GTGestionTournoisBundle/Resources/config/routing/tournois.yml" 
-  
-    
-    
+tablereference: 
+    resource: "@GTGestionTournoisBundle/Resources/config/routing/tablereference.yml" 
+equipes: 
+    resource: "@GTGestionTournoisBundle/Resources/config/routing/equipes.yml"   

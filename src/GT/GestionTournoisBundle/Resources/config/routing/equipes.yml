@@ -1,0 +1,30 @@
+equipes:
+    pattern:  equipes
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:index" }
+
+equipes_show:
+    pattern:  equipes/{id}/show
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:show" }
+
+equipes_new:
+    pattern:  equipes/new
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:new" }
+
+equipes_create:
+    pattern:  equipes/create
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:create" }
+    requirements: { _method: post }
+
+equipes_edit:
+    pattern:  equipes/{id}/edit
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:edit" }
+
+equipes_update:
+    pattern:  equipes/{id}/update
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:update" }
+    requirements: { _method: post|put }
+
+equipes_delete:
+    pattern:  equipes/{id}/delete
+    defaults: { _controller: "GTGestionTournoisBundle:Equipes:delete" }
+    requirements: { _method: post|delete }
