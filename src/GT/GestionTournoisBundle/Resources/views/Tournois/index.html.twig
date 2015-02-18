@@ -10,15 +10,9 @@
                 <th>Intitule</th>
                 <th>Dtdebut</th>
                 <th>Dtfin</th>
-                <th>Categorie</th>
-                <th>Systeme</th>
                 <th>Nbrequipe</th>
                 <th>Responsable</th>
                 <th>Etat</th>
-                <th>Winner</th>
-                <th>Meilleurjoueur</th>
-                <th>Meilleurgardienne</th>
-                <th>Buteur</th>
                 <th>Commentaire</th>
                 <th>Str1</th>
                 <th>Str2</th>
@@ -35,15 +29,9 @@
                 <td>{{ entity.intitule }}</td>
                 <td>{% if entity.dtDebut %}{{ entity.dtDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.dtFin %}{{ entity.dtFin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.categorie }}</td>
-                <td>{{ entity.systeme }}</td>
                 <td>{{ entity.nbrEquipe }}</td>
                 <td>{{ entity.responsable }}</td>
                 <td>{{ entity.etat }}</td>
-                <td>{{ entity.winner }}</td>
-                <td>{{ entity.meilleurJoueur }}</td>
-                <td>{{ entity.meilleurGardienne }}</td>
-                <td>{{ entity.buteur }}</td>
                 <td>{{ entity.commentaire }}</td>
                 <td>{{ entity.str1 }}</td>
                 <td>{{ entity.str2 }}</td>

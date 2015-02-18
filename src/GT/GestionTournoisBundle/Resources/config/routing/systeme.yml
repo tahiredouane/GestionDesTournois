@@ -1,0 +1,30 @@
+systeme:
+    pattern:  /
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:index" }
+
+systeme_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:show" }
+
+systeme_new:
+    pattern:  /new
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:new" }
+
+systeme_create:
+    pattern:  /create
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:create" }
+    requirements: { _method: post }
+
+systeme_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:edit" }
+
+systeme_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:update" }
+    requirements: { _method: post|put }
+
+systeme_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GTGestionTournoisBundle:Systeme:delete" }
+    requirements: { _method: post|delete }

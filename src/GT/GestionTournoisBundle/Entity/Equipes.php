@@ -110,7 +110,7 @@ class Equipes
     private $tournoi;
 
     /**
-     * @var \GT\GestionTournoisBundle\Entity\TableReference
+     * @var string
      */
     private $groupe;
 
@@ -197,7 +197,7 @@ class Equipes
     /**
      * Set coach/entraineur
      *
-     * @param string $coach/entraineur
+     * @param string $coach
      * @return Equipes
      */
     public function setCoach($coach)
@@ -562,26 +562,32 @@ class Equipes
         return $this->tournoi;
     }
 
-    /**
+  
+      /**
      * Set groupe
      *
-     * @param \GT\GestionTournoisBundle\Entity\TableReference $groupe
+     * @param string $groupe
      * @return Equipes
      */
-    public function setGroupe(\GT\GestionTournoisBundle\Entity\TableReference $groupe = null)
+    public function setGroupe($groupe)
     {
         $this->groupe = $groupe;
     
         return $this;
     }
 
-    /**
+    
+     /**
      * Get groupe
      *
-     * @return \GT\GestionTournoisBundle\Entity\TableReference 
+     * @return string 
      */
     public function getGroupe()
     {
         return $this->groupe;
+    }
+    
+     public function __toString() {
+        return $this->nom;
     }
 }

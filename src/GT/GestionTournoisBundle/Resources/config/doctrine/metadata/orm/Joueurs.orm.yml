@@ -26,16 +26,6 @@ Joueurs:
             type: date
             nullable: false
             column: DT_NAISSANCE
-        equipe:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: EQUIPE
-        categorie:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: CATEGORIE
         numero:
             type: integer
             unsigned: false
@@ -77,4 +67,23 @@ Joueurs:
             type: datetime
             nullable: false
             column: DT_CREATION
+    manyToOne:
+        categorie:
+            targetEntity: Categorie
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                CATEGORIE:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        equipe:
+            targetEntity: Equipes
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                EQUIPE:
+                    referencedColumnName: ID
+            orphanRemoval: false
     lifecycleCallbacks: {  }

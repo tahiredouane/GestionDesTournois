@@ -36,7 +36,7 @@ class EquipesType extends AbstractType
 ->add('groupe', 'entity', array(
     'class' => 'GTGestionTournoisBundle:TableReference',
     'query_builder' => function(EntityRepository $er) {
-        return $er->createQueryBuilder('u')
+        return $er->createQueryBuilder('u')  
             ->where("u.tableName = 'GROUPE'")
             ;
     },

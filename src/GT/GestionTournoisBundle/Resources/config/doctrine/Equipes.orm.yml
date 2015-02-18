@@ -108,6 +108,15 @@ GT\GestionTournoisBundle\Entity\Equipes:
             nullable: false
             column: DT_CREATION
     manyToOne:
+        groupe:
+            targetEntity: Groupe
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                GROUPE:
+                    referencedColumnName: ID
+            orphanRemoval: false
         tournoi:
             targetEntity: Tournois
             cascade: {  }
@@ -116,14 +125,5 @@ GT\GestionTournoisBundle\Entity\Equipes:
             joinColumns:
                 TOURNOI:
                     referencedColumnName: ID
-            orphanRemoval: false
-        groupe:
-            targetEntity: TableReference
-            cascade: {  }
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                GROUPE:
-                    referencedColumnName: CODE
             orphanRemoval: false
     lifecycleCallbacks: {  }

@@ -1,0 +1,69 @@
+Groupe:
+    type: entity
+    table: groupe
+    fields:
+        id:
+            id: true
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            column: ID
+            generator:
+                strategy: IDENTITY
+        code:
+            type: string
+            length: 20
+            fixed: false
+            nullable: false
+            column: CODE
+        intitule:
+            type: string
+            length: 250
+            fixed: false
+            nullable: false
+            column: INTITULE
+        tableName:
+            type: string
+            length: 250
+            fixed: false
+            nullable: false
+            column: TABLE_NAME
+        str1:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: STR_1
+        str2:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: STR_2
+        str3:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: STR_3
+        int1:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_1
+        int2:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_2
+        int3:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: INT_3
+        dtCreation:
+            type: datetime
+            nullable: false
+            column: DT_CREATION
+    lifecycleCallbacks: {  }

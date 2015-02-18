@@ -1,0 +1,30 @@
+categorie:
+    pattern:  /
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:index" }
+
+categorie_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:show" }
+
+categorie_new:
+    pattern:  /new
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:new" }
+
+categorie_create:
+    pattern:  /create
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:create" }
+    requirements: { _method: post }
+
+categorie_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:edit" }
+
+categorie_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:update" }
+    requirements: { _method: post|put }
+
+categorie_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GTGestionTournoisBundle:Categorie:delete" }
+    requirements: { _method: post|delete }

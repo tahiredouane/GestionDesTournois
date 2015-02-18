@@ -10,31 +10,6 @@ GT\GestionTournoisBundle\Entity\Avertissement:
             column: ID
             generator:
                 strategy: IDENTITY
-        tournoi:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: TOURNOI
-        matchs:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: MATCHS
-        equipe:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: EQUIPE
-        joueur:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: JOUEUR
-        typeCarte:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: TYPE_CARTE
         str1:
             type: string
             length: 250
@@ -61,4 +36,50 @@ GT\GestionTournoisBundle\Entity\Avertissement:
             type: datetime
             nullable: false
             column: DT_CREATION
+    manyToOne:
+        equipe:
+            targetEntity: Equipes
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                EQUIPE:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        joueur:
+            targetEntity: Joueurs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                JOUEUR:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        matchs:
+            targetEntity: Matchs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                MATCHS:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        tournoi:
+            targetEntity: Tournois
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                TOURNOI:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        typeCarte:
+            targetEntity: TypeCarte
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                TYPE_CARTE:
+                    referencedColumnName: ID
+            orphanRemoval: false
     lifecycleCallbacks: {  }

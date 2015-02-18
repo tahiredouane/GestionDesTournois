@@ -1,0 +1,30 @@
+typecarte:
+    pattern:  /
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:index" }
+
+typecarte_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:show" }
+
+typecarte_new:
+    pattern:  /new
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:new" }
+
+typecarte_create:
+    pattern:  /create
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:create" }
+    requirements: { _method: post }
+
+typecarte_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:edit" }
+
+typecarte_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:update" }
+    requirements: { _method: post|put }
+
+typecarte_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GTGestionTournoisBundle:TypeCarte:delete" }
+    requirements: { _method: post|delete }

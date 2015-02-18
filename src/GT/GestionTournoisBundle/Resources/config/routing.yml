@@ -1,9 +1,29 @@
 gt_gestion_tournois_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GTGestionTournoisBundle:Default:index }
+        pattern:  /hello/{name}
+        defaults: { _controller: GTGestionTournoisBundle:Default:index }
 tournois: 
-    resource: "@GTGestionTournoisBundle/Resources/config/routing/tournois.yml" 
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/tournois.yml" 
+        prefix:   /tournois
 tablereference: 
-    resource: "@GTGestionTournoisBundle/Resources/config/routing/tablereference.yml" 
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/tablereference.yml" 
+        prefix:   /tablereference
 equipes: 
-    resource: "@GTGestionTournoisBundle/Resources/config/routing/equipes.yml"   
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/equipes.yml" 
+        prefix:   /equipes
+tour:
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/tour.yml"
+        prefix:   /tour
+systeme:
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/systeme.yml"
+        prefix:   /systeme
+typecarte:
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/typecarte.yml"
+        prefix:   /typecarte
+categorie:
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/categorie.yml"
+        prefix:   /categorie        
+groupe:
+        resource: "@GTGestionTournoisBundle/Resources/config/routing/groupe.yml"
+        prefix:   /groupe 
+
+

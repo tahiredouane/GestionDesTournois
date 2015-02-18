@@ -24,16 +24,6 @@ Tournois:
             type: date
             nullable: false
             column: DT_FIN
-        categorie:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: CATEGORIE
-        systeme:
-            type: integer
-            unsigned: false
-            nullable: false
-            column: SYSTEME
         nbrEquipe:
             type: integer
             unsigned: false
@@ -49,26 +39,6 @@ Tournois:
             type: boolean
             nullable: true
             column: ETAT
-        winner:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: WINNER
-        meilleurJoueur:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: MEILLEUR_JOUEUR
-        meilleurGardienne:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: MEILLEUR_GARDIENNE
-        buteur:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: BUTEUR
         commentaire:
             type: string
             length: 300
@@ -101,4 +71,59 @@ Tournois:
             type: datetime
             nullable: false
             column: DT_CREATION
+    manyToOne:
+        buteur:
+            targetEntity: Joueurs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                BUTEUR:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        categorie:
+            targetEntity: Categorie
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                CATEGORIE:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        meilleurGardienne:
+            targetEntity: Joueurs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                MEILLEUR_GARDIENNE:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        meilleurJoueur:
+            targetEntity: Joueurs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                MEILLEUR_JOUEUR:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        systeme:
+            targetEntity: Systeme
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                SYSTEME:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        winner:
+            targetEntity: Equipes
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                WINNER:
+                    referencedColumnName: ID
+            orphanRemoval: false
     lifecycleCallbacks: {  }

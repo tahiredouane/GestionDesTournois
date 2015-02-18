@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Systeme list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Intitule</th>
+                <th>Tablename</th>
+                <th>Str1</th>
+                <th>Str2</th>
+                <th>Str3</th>
+                <th>Int1</th>
+                <th>Int2</th>
+                <th>Int3</th>
+                <th>Dtcreation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('systeme_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.code }}</td>
+                <td>{{ entity.intitule }}</td>
+                <td>{{ entity.tableName }}</td>
+                <td>{{ entity.str1 }}</td>
+                <td>{{ entity.str2 }}</td>
+                <td>{{ entity.str3 }}</td>
+                <td>{{ entity.int1 }}</td>
+                <td>{{ entity.int2 }}</td>
+                <td>{{ entity.int3 }}</td>
+                <td>{% if entity.dtCreation %}{{ entity.dtCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('systeme_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('systeme_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('systeme_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

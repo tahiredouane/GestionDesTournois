@@ -308,4 +308,12 @@ class TableReference
      public function __toString() {
         return $this->intitule;
     }
+ 
+    public function setTableReference(TableReference $TabRef) {
+        $this->id = $TabRef->getId();
+        $this->code = $TabRef->getCode();
+        $this->tableName = $TabRef->getTableName();
+        $this->intitule = $TabRef->getIntitule();
+   
+    }
 }
